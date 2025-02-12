@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open in Microsoft Edge</title>
+    <script>
+        function openInEdge() {
+            var edgeUrl = 'https://book.ms/b/MUSCDigitalLaboratoryInnovationLearningCenter@musc.onmicrosoft.com';
+            var fallbackUrl = 'https://www.microsoft.com/edge';
+
+            // Attempt to open the Edge-specific URL
+            window.location.href = edgeUrl;
+
+            // After a short delay, redirect to the Edge download page
+            setTimeout(function() {
+                window.location.href = fallbackUrl;
+            }, 1000);
+        }
+    </script>
+</head>
+<body onload="openInEdge()">
+    <p>If you are not redirected automatically, <a href="https://www.microsoft.com/edge">click here to download Microsoft Edge</a>.</p>
+</body>
+</html>
