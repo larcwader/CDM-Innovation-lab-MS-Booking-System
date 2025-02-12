@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open in Microsoft Edge</title>
+    <script>
+        function openInEdge() {
+            var edgeUrl = 'microsoft-edge:www.book.ms/b/MUSCDigitalLaboratoryInnovationLearningCenter@musc.onmicrosoft.com';
+            var fallbackUrl = '';
+
+            // Detect user device
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/iPhone|iPad|iPod/i.test(userAgent)) {
+                // iOS - Redirect to App Store
+                fallbackUrl = 'https://apps.apple.com/us/app/microsoft-edge-ai-browser/id1288723196';
+            } else if (/android/i.test(userAgent)) {
+                // Android - Redirect to Google Play Store
+                fallbackUrl = 'https://play.google.com/store/apps/details?id=com.microsoft.emmx&pcampaignid=web_share';
+            } else {
+                // Assume PC - Redirect to Microsoft Edge download page
+                fallbackUrl = 'https://www.microsoft.com/edge';
+            }
+
+            // Attempt to open the Edge link
+            window.location.href = edgeUrl;
+
+            // If Edge isn't installed, redirect to the fallback URL after a short delay
+            setTimeout(function() {
+                window.location.href = fallbackUrl;
+            }, 1500);
+        }
+    </script>
+</head>
+<body onload="openInEdge()">
+    <h2>Redirecting...</h2>
+    <p>If you are not redirected, <a href="#" onclick="openInEdge()">click here</a>.</p>
+</body>
+</html>
